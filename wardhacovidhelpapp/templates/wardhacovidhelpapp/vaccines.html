@@ -1,0 +1,63 @@
+{% extends 'wardhacovidhelpapp/base.html' %}
+{% load static %}
+{% block content%}
+
+<style>
+ .card{
+    background-color: #1e1e1e; 
+ }
+ .card-text{
+    color: white;
+ }
+
+</style>
+<div class="container" style="background-color: #15181e; color: white;">
+    <br>
+    <div class="row align-self-center">
+        <div class="col-sm-6 mx-auto">
+            <img src="{% static 'images/Dos_and_Donts_for_Citizens.jpg' %}" class="img-fluid rounded"
+                alt="Responsive image">
+        </div>
+
+    </div>
+    <br>
+    <div class="row align-self-center" >
+        <div class="col-sm-9 mx-auto">
+            <div class="card border-dark mb-3" style="width: 100%;">
+                <div class="card-header">CoWIN पोर्टलद्वारे रजिस्ट्रेशनसाठी या स्टेप्स फॉलो करा (MARATHI)</div>
+                <div class="card-body text-dark">
+                    <!-- <h5 class="card-title">Primary card title</h5> -->
+                    {% for marathiinfo in VAICINE_PAGE_COWIN_INFO_MARATHI%}
+                    <p class="card-text">{{marathiinfo}}</p>
+                    {% endfor %}
+                </div>
+                <div class="card-footer"><a href="https://selfregistration.cowin.gov.in/" target="_blank"><button type="button" class="btn btn-primary btn-block">REGISTER ON CoWIN</button></a></div>
+            </div>
+       
+        </div>
+        <div class="col-sm-9 mx-auto">
+            <div class="card border-dark mb-3" style="width: 100%;">
+                <div class="card-header">Follow these steps to register through the CoWIN portal (ENGLISH)</div>
+                <div class="card-body text-dark">
+                    <!-- <h5 class="card-title">Primary card title</h5> -->
+                    {% for enginfo in VAICINE_PAGE_COWIN_INFO_ENGLISH%}
+                    <p class="card-text">{{enginfo}}</p>
+                    {% endfor %}
+
+                </div>
+                <div class="card-footer"><a href="https://selfregistration.cowin.gov.in/" target="_blank"><button type="button" class="btn btn-primary btn-block">REGISTER ON CoWIN</button></a></div>
+            </div>
+       
+        </div>
+    </div>
+    <br>
+    <div class="row align-self-center">
+        <div class="col-sm-9 mx-auto">
+            <img src="{% static 'images/vaccine-infographic-desktop.jpg' %}" class="img-fluid rounded"
+                alt="Responsive image">
+        </div>
+
+    </div>
+
+</div>
+{% endblock%}

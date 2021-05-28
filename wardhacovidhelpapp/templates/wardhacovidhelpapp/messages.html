@@ -1,0 +1,14 @@
+<div class="container">
+    {% if messages %}
+      <div class="alert alert-success m-2" id="msg" role="alert">
+        <h4 class="alert-heading">Submitted !</h4>
+        {% for message in messages%}
+            <p>{{message}}</p>
+            <hr>
+        {% endfor %}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
+    {% endif %}
+    
+  </div>

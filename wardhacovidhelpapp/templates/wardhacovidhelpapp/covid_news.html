@@ -1,0 +1,55 @@
+{% extends 'wardhacovidhelpapp/base.html' %}
+{% load static %}
+{% block content%}
+
+<div class="container" style="background-color: #15181e; color: white;">
+   <!-- Section: Blog v.3 -->
+<section class="my-5">
+
+   <!-- Section heading -->
+   <h2 class="h1-responsive font-weight-bold text-center my-5">Recent News</h2>
+   {% for News in Newsdata%}
+   <!-- Grid row -->
+   <div class="row rounded" style="background-color: #1e1e1e; color: white;">
+ 
+     <!-- Grid column -->
+     <div class="col-lg-5 col-xl-4">
+ 
+       <!-- Featured image -->
+       <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
+         <img class="img-fluid" src="images/{{News.News_Image}}" alt="Sample image">
+         <a>
+           <div class="mask rgba-white-slight"></div>
+         </a>
+       </div>
+ 
+     </div>
+     <!-- Grid column -->
+ 
+     <!-- Grid column -->
+     <div class="col-lg-7 col-xl-8">
+ 
+       <!-- Post title -->
+       <h3><strong>{{News.Title}}</strong></h3>
+       <!-- Excerpt -->
+       <p class="dark-grey-text">{{News.Short_Discription}}</p>
+       
+       <!-- Post data -->
+      <p><span><footer class="blockquote-footer">{{News.Date_Created}}</footer></span></p>
+       <!-- Read more button -->
+       <a class="btn btn-primary btn-md" href="{% url 'detailview_name' News.id%}" >Read More</a>
+ 
+     </div>
+     <!-- Grid column -->
+ 
+   </div>
+   <!-- Grid row -->
+ 
+   <hr class="my-3">
+   {% endfor %}
+ </section>
+ <!-- Section: Blog v.3 -->
+</div>
+
+
+{% endblock%}

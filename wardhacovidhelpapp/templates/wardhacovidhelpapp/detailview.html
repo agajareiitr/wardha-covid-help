@@ -1,0 +1,39 @@
+{% extends 'wardhacovidhelpapp/base.html' %}
+{% load static %}
+{% block content%}
+
+
+<div class="container" style="background-color: #121212; color:white;">
+    <br>
+    <h2><strong>{{newsdetails.Title}}</strong></h2>
+    <p>Date: {{newsdetails.Date_Created}}</p>
+    <div class="row align-self-center">
+        <div class="col-sm-9 mx-auto">
+            <img src="{%static 'images/'%}{{newsdetails.News_Image}}" class="img-fluid rounded" alt="Sample image">
+            <hr>
+        </div>
+    </div>
+
+    <div class="row align-self-center" >
+        <div class="col-sm-9 mx-auto"style="background-color: #1e1e1e; color: white;">
+            <h3>In English</h3>
+            <p class="dark-grey-text">{{newsdetails.Short_Discription}}</p>
+            <p class="dark-grey-text">{{newsdetails.Paragraph_1}}</p>
+            <p class="dark-grey-text">{{newsdetails.Paragraph_2}}</p>
+            <p class="dark-grey-text">{{newsdetails.Paragraph_3}}</p>
+            <p class="dark-grey-text">{{newsdetails.Paragraph_4}}</p>
+            <p class="dark-grey-text">{{newsdetails.Paragraph_5}}</p>
+            <h3>मराठी मध्ये</h3>
+            <p class="dark-grey-text">{{newsdetails.Paragraph_6}}</p>
+            <p class="dark-grey-text">{{newsdetails.Paragraph_7}}</p>
+            <p class="dark-grey-text">{{newsdetails.Paragraph_8}}</p>
+            <p class="dark-grey-text">{{newsdetails.Paragraph_9}}</p>
+            <p class="dark-grey-text">{{newsdetails.Paragraph_10}}</p>
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock %}

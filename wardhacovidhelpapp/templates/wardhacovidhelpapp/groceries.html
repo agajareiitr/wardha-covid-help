@@ -1,0 +1,51 @@
+{% extends 'wardhacovidhelpapp/base.html' %}
+
+{% block content %}
+<br>
+<div class="container" style="background-color: #15181e; color: white;">
+    <p>if you are a store owner who Provide Free Delivery and want your store name on our website then please fill the
+        form by clicking the below Button</p>
+    <a href="{% url 'groceries_form_name' %}" target="_blank"><button type="button"
+            class="btn btn-primary btn-block">REGISTER YOUR STORE</button></a>
+
+    <h2>GROCERY STORE :</h2>
+    {% for Store in Stores %}
+
+    <div class="card" style="background-color: #1e1e1e; color: white;">
+        <div class="card-body">
+            <h4 class="card-title" style="display: inline;">{{Store.Store_Name}}
+                {% if Store.Admin_Verified %}
+                <h6 style="display: inline;"><span class="badge rounded-pill bg-success">VERIFIED</span> </h6>
+                {%else%}
+                <h6 style="display: inline;"><span class="badge rounded-pill bg-danger">NOT VERIFIED</span></h6>
+                {% endif%}
+            </h4>
+            <hr>
+            <h6>
+                <p class="card-text"><img alt="Address icon" src="https://img.icons8.com/office/2x/address.png"
+                        style="height: 20px; width: 20px;"> {{Store.Address}}</p>
+                <p class="card-text"><img alt="Number Pad icon" src="https://img.icons8.com/fluent/2x/number-pad.png"
+                        style="height: 20px; width: 20px;"> {{Store.Phone_Number}} &bull;
+                    <img src="https://img.icons8.com/fluent/2x/delivery-scooter.png" alt="Delivery Scooter icon"
+                        style="height: 25px; width: 25px;"> {{Store.Delivery_Type}}
+                </p>
+                <p class="card-text">Store Remarks : {{Store.Store_Remarks}}</p>
+
+            </h6>
+        </div>
+    </div>
+    <br>
+
+    {% endfor %}
+</div>
+
+<style>
+    p {
+        margin: 10px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+</style>
+{% endblock %}

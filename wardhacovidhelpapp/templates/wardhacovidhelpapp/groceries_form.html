@@ -1,0 +1,26 @@
+{% extends 'wardhacovidhelpapp/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+<div class="container" style="background-color: #15181e; color: white;"">
+<br>
+<form method="POST" enctype="miltipart/form-data">
+    {% csrf_token %}
+    {{ groceriesform|crispy}}
+
+    <button type="submit" class="btn btn-success btn-lg btn-block" >Submit</button>
+</form>
+
+</div>
+<br>
+<style>
+    .form-control{
+        background-color: whitesmoke;
+        
+    }
+
+</style>
+
+{% endblock %}

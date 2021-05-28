@@ -1,0 +1,106 @@
+{% extends 'wardhacovidhelpapp/base.html' %}
+
+{% block content%}
+{% include 'wardhacovidhelpapp/messages.html'%}
+
+
+<div class="container">
+    <hr>
+    <h5><p><i>Note</i>: the tag <span class="badge rounded-pill bg-success">VERIFIED</span> means that all the details show below about the <b>Donar</b> is personally verified by our Team</p></h5>
+    <hr>
+</div>
+<div class="container">
+<h1>PLASMA DONORS</h1>
+    <table class="table table-striped table-hover ">
+        <thead>
+            <tr>
+                <th>Verified</th>
+                <th>Name</th>
+                <th>Gender/Age</th>          
+                <th>Blood Group</th>
+                <th>Date of Negative</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for Donar in PlasmaDonar %}
+                {% if Donar.verified == True %}
+                <tr>
+                <td><span class="badge rounded-pill bg-success">VERIFIED</span></td>
+                <td>{{Donar.Name}}</td>
+                <td>{{Donar.Gender}}/{{Donar.Age}}</td>
+                <td>{{Donar.BloodGroup}}</td>
+                <td>{{Donar.DateOfNegative}}</td>
+               
+                </tr>
+                {% endif %}
+            {% endfor %}
+
+        </tbody>
+    </table>
+    </div>
+<br>
+<div class="container">
+    <h1>PLASMA REQUEST</h1>
+    <table class="table table-striped table-hover "> 
+        <thead>
+            <tr>
+            <th>Verified</th>
+            <th>Name</th>
+            <th>Gender/Age</th>
+            <th>Blood Group</th>
+            <th>Date of Positive</th>
+            <th>Hospital Name</th>
+           
+            </tr>
+        </thead>
+        <tbody>
+            {% for Request in PlasmaRequest %}
+            {% if Request.verified == True and Request.complete == False%}
+            <tr>
+            <td><span class="badge rounded-pill bg-success">VERIFIED</span></td>
+            <td>{{Request.Name}}</td>
+            <td>{{Request.Gender}}/{{Request.Age}}</td>
+            <td>{{Request.BloodGroup}}</td>
+            <td>{{Request.DateOfPositive}}</td>
+            <td>{{Request.HospitalName}}</td>
+            
+            </tr>
+            {% endif %}
+            {% endfor %}
+            
+        </tbody>
+    </table>
+    <br>
+    <h1>PLASMA REQUEST COMPLETED</h1>
+    <table class="table table-striped table-hover "> 
+        <thead>
+            <tr>
+            <th>Verified</th>
+            <th>Name</th>
+            <th>Gender/Age</th>
+            <th>Blood Group</th>
+            <th>Date of Negative</th>
+            <th>Hospital Name</th>
+            
+            </tr>
+        </thead>
+        <tbody>
+            {% for Request in PlasmaRequest %}
+            {% if Request.verified == True and Request.complete == True%}
+            <tr>
+            <td><span class="badge rounded-pill bg-success">VERIFIED</span></td>
+            <td>{{Request.Name}}</td>
+            <td>{{Request.Gender}}/{{Request.Age}}</td>
+            <td>{{Request.BloodGroup}}</td>
+            <td>{{Request.DateOfPositive}}</td>
+            <td>{{Request.HospitalName}}</td>
+            
+            </tr>
+            {% endif %}
+            {% endfor %}
+            
+        </tbody>
+    </table>
+    </div>
+{% endblock %}

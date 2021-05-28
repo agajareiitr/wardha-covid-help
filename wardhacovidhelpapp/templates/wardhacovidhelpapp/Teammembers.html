@@ -1,0 +1,29 @@
+{% extends 'wardhacovidhelpapp/base.html' %}
+{% load static%}
+{% block content%}
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for member in teammembers%}
+    <div class="col-sm">
+      <div class="card w-75">
+        <img src="{{member.ProfileImage.url}}" class="card-img-top rounded img-fluid"
+          style="height: 27vh; width: 100%; object-fit: cover;" alt="image">
+        <h5 class="card-header " type = "button" data-toggle="collapse" data-target="#member-{{member.id}}"
+            aria-expanded="false" aria-controls="member-{{member.id}}">
+            {{member.Name}} | {{member.Profession}}
+        </h5>
+        <div class="collapse" id="member-{{member.id}}">
+          <div class="card-body">
+
+            <p>{{member.Title}}</p>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    {% endfor%}
+  </div>
+</div>
+<br>
+{% endblock%}
