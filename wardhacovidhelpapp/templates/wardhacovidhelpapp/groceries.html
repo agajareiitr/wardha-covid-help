@@ -10,15 +10,12 @@
 
     <h2>GROCERY STORE :</h2>
     {% for Store in Stores %}
-
+        {% if Store.Admin_Verified %}
     <div class="card" style="background-color: #1e1e1e; color: white;">
         <div class="card-body">
             <h4 class="card-title" style="display: inline;">{{Store.Store_Name}}
-                {% if Store.Admin_Verified %}
                 <h6 style="display: inline;"><span class="badge rounded-pill bg-success">VERIFIED</span> </h6>
-                {%else%}
-                <h6 style="display: inline;"><span class="badge rounded-pill bg-danger">NOT VERIFIED</span></h6>
-                {% endif%}
+                
             </h4>
             <hr>
             <h6>
@@ -35,7 +32,7 @@
         </div>
     </div>
     <br>
-
+            {% endif%}
     {% endfor %}
 </div>
 
