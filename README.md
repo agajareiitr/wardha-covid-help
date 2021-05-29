@@ -1,5 +1,14 @@
 # wardha-covid-help
 
+# Explore the Website:
+1. Go to [https://www.wardhacovidhelp.online/](https://www.wardhacovidhelp.online/) to see the actual Website
+2. Now go to admin panel [https://www.wardhacovidhelp.online/admin](https://www.wardhacovidhelp.online/admin) to see how data is managed in Backend.
+3. for Credentials use :
+    1. Username : ```demo```
+    2. Password : ```pass@1234```
+4. Use the Above Credetials to log in. (! above credentials have only view Permissions )
+
+
 # Steps to Download and run this Website :
 
 1. Download this repository using ``` git clone https://github.com/agajareiitr/wardha-covid-help.git``` in some folder
