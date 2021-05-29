@@ -1,0 +1,7 @@
+### Temporary gitignore file ###
+## TODO: Add complete gitgnore file
+
+*.log
+*.pot
+*.pyc
+__pycache__/
