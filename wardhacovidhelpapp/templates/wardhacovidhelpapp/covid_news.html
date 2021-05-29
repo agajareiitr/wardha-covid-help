@@ -10,7 +10,7 @@
    <h2 class="h1-responsive font-weight-bold text-center my-5">Recent News</h2>
    {% for News in Newsdata%}
    <!-- Grid row -->
-   <div class="row rounded" style="background-color: #1e1e1e; color: white;">
+   <div class="row rounded d-flex align-items-center" style="background-color: #1e1e30; color: white; padding: 1rem;">
  
      <!-- Grid column -->
      <div class="col-lg-5 col-xl-4">
@@ -37,7 +37,15 @@
        <!-- Post data -->
       <p><span><footer class="blockquote-footer">{{News.Date_Created}}</footer></span></p>
        <!-- Read more button -->
-       <a class="btn btn-primary btn-md" href="{% url 'detailview_name' News.id%}" >Read More</a>
+       <a class="btn btn-md" href="{% url 'detailview_name' News.id%}"       
+       style="
+        background-color: darkslateblue;
+        outline: none;
+        border: none;
+        font-weight: 700;
+        color:white;
+      "
+>Read More</a>
  
      </div>
      <!-- Grid column -->
