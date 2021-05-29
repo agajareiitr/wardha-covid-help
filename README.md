@@ -15,9 +15,10 @@
 2. Make a Virtual Environment using ```python -m venv yourenvname```.
 3. activate your ```yourvenvname``` using  ``` yourvenvname\Scripts\activate``` or ``` yourvenvname\Scripts\activate.bat``` command in command line.
 4. Now go to ```wardhacovidhelp``` directory and run followings command :
-    1. ```python manage.py makemigrations```
-    2. ```python manage.py migrate```
-    3. ```python manage.py createsuperuser```
+    1. `pip install -r requirements.txt`
+    2. ```python manage.py makemigrations```
+    3. ```python manage.py migrate```
+    4. ```python manage.py createsuperuser```
 5. Now run ``` python manage.py runserver```
 6. Now go to ```127.0.0.1:8000``` to see the website.
 ----
