@@ -1,5 +1,16 @@
 {% extends 'wardhacovidhelpapp/base.html' %} {% block content %}
 <br />
+
+<style>
+  @media only screen and  (max-width: 640px) {
+    .responsive-btn { 
+      display: flex;
+      margin-bottom: 1rem;
+      margin-left: 0.5rem;
+    }
+  }
+</style>
+
 <div class="container" style="background-color: #15181e; color: white">
   <p
     class="note-item mb-4"
@@ -15,7 +26,7 @@
     If you are a store owner who Provide Free Delivery and want your store name
     on our website then please fill the form by clicking the below Button
   </p>
-  <a href="{% url 'groceries_form_name' %}" target="_blank"
+  <a href="{% url 'groceries_form_name' %}" class="responsive-btn" target="_blank"
     ><button
       type="button"
       class="btn btn-primary float-right mr-2"

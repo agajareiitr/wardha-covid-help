@@ -1,5 +1,15 @@
 {% extends 'wardhacovidhelpapp/base.html' %} {% block content %}
 <br />
+<style>
+  @media only screen and  (max-width: 640px) {
+    .responsive-btn { 
+      display: flex;
+      margin-bottom: 1rem;
+      margin-left: 0.5rem;
+    }
+  }
+</style>
+
 <div class="container" style="background-color: #15181e; color: white">
   <div
     style="
@@ -18,10 +28,10 @@
       Vaccine. Please Note that this Data is only for Wardha District.
     </p>
   </div>
-  <a href="https://selfregistration.cowin.gov.in/" target="_blank"
+  <a href="https://selfregistration.cowin.gov.in/" class="responsive-btn" target="_blank"
     ><button
       type="button"
-      class="btn btn-primary float-right mr-2"
+      class="btn btn-primary float-right mr-2 "
       style="
         background-color: darkslateblue;
         outline: none;
