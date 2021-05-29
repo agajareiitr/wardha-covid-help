@@ -1,43 +1,69 @@
-{% extends 'wardhacovidhelpapp/base.html' %}
+{% extends 'wardhacovidhelpapp/base.html' %} {% block content %}
 
-{% block content %}
+<div class="container" style="background-color: #15181e; color: white">
+  <br />
+  <h6
+    style="
+      background: #1e1e3066;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 5px;
+      color: #ffffffbb;
+      padding: 1rem 1rem 0 1rem;
+      margin-bottom: 2rem;
+      font-style: italic;
+    "
+  >
+    <p>
+      <i>Note</i>: the tag
+      <span class="badge rounded-pill bg-success">VERIFIED</span> means that all
+      the details show below about the <b>Donar</b> is personally verified by
+      our Team
+    </p>
+  </h6>
 
-
-<div class="container" style="background-color: #15181e; color: white;">
-  <br>
-  <h6><p><i>Note</i>: the tag <span class="badge rounded-pill bg-success">VERIFIED</span> means that all the details show below about the <b>Donar</b> is personally verified by our Team</p></h6>
-  <hr>
-  <h2>COVID TESTING LABS:</h2>
+  <h2 class="font-weight-bold ml-2" style="margin-bottom: 2rem">
+    Covid Testing Labs:
+  </h2>
 
   {% for Hospital in Hospital_details %}
 
-      <div class="card" style="background-color: #1e1e1e; color: white;">
-        <div class="card-body">
-          <h4 class="card-title" style="display: inline;">{{Hospital.HospitalName}}
-            {% if Hospital.Verified %}
-            <h6 style="display: inline;"><span class="badge rounded-pill bg-success">VERIFIED</span> </h6>
-            {%else%}
-            <h6 style="display: inline;"><span class="badge rounded-pill bg-danger">NOT VERIFIED</span></h6>
-            {% endif%}
-          </h4>
-          <hr>
-          <h6>
-            <p class="card-text"><img alt="Address icon" src="https://img.icons8.com/office/2x/address.png"
-              style="height: 20px; width: 20px;"> {{Hospital.Address}}</p>
-            <p class="card-text"><img alt="Number Pad icon" src="https://img.icons8.com/fluent/2x/number-pad.png"
-              style="height: 20px; width: 20px;"> {{Hospital.PhoneNumber}}</p>
-            
-          </h6>
-        </div>
-      </div>
-      <br>
+  <div class="card" style="background-color: #1e1e30; color: white">
+    <div class="card-body">
+      <h4 class="card-title" style="display: inline">
+        {{Hospital.HospitalName}} {% if Hospital.Verified %}
+        <h6 style="display: inline">
+          <span class="badge rounded-pill bg-success">VERIFIED</span>
+        </h6>
+        {%else%}
+        <h6 style="display: inline">
+          <span class="badge rounded-pill bg-danger">NOT VERIFIED</span>
+        </h6>
+        {% endif%}
+      </h4>
+      <hr />
+      <h6>
+        <p class="card-text">
+          <img
+            alt="Address icon"
+            src="https://img.icons8.com/office/2x/address.png"
+            style="height: 20px; width: 20px"
+          />
+          {{Hospital.Address}}
+        </p>
+        <p class="card-text">
+          <img
+            alt="Number Pad icon"
+            src="https://img.icons8.com/fluent/2x/number-pad.png"
+            style="height: 20px; width: 20px"
+          />
+          {{Hospital.PhoneNumber}}
+        </p>
+      </h6>
+    </div>
+  </div>
+  <br />
 
   {% endfor %}
 </div>
-
-
-
-
-
 
 {% endblock %}
