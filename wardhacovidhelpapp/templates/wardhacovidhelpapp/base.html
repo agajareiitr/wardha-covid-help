@@ -61,6 +61,20 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap"
       rel="stylesheet"
     />
+
+    <style>
+    .main-title{
+      font-size: 1.5rem;
+    }
+    @media only screen and (max-width: 640px) {
+      .main-title{
+        font-size: 1.3rem;
+      }
+      .logo {
+        width: 40px;
+      }
+    }
+    </style>
   </head>
 
   <body style="background-color: #15181e">
@@ -76,15 +90,14 @@
         <img
           src="images/wardha.png"
           width="55px"
-          class="d-inline-block align-top mr-3"
+          class="logo d-inline-block align-top mr-3"
           alt=""
         />
         <p
-          class="m-auto font-weight-bold"
+          class="m-auto font-weight-bold main-title"
           style="
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
-            font-size: 1.5rem;
           "
         >
           Wardha Covid Help

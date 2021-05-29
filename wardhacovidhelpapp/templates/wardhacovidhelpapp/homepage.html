@@ -1,7 +1,7 @@
 {% extends 'wardhacovidhelpapp/base.html' %}
 {% load static %}
 {% block content%}
-<div class="container" style="padding-right: 2rem;padding-left: 2rem">
+<div class="container" style="padding-right: 1rem;padding-left: 1rem">
     <style>
 
         * {
@@ -36,7 +36,6 @@
 
         .action-items {
             padding: 0.5rem 1rem;
-            margin-bottom: 1rem;
             background-color: #1e1e30;
         }
 
@@ -46,6 +45,13 @@
             margin-right: 2rem;
             width: 4.5em;   
         }
+
+        @media only screen and (max-width: 640px) {
+            .action-items img {
+                width: 3em;
+            }
+        }
+
 
         .action-items .item-heading {
             font-size: 1.1rem;
