@@ -1,179 +1,270 @@
 {% extends 'wardhacovidhelpapp/base.html' %}
 {% load static %}
 {% block content%}
-<div class="container" style="padding-right: 0%;padding-left: 0%;">
+<div class="container" style="padding-right: 1rem;padding-left: 1rem">
     <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
         #listbutton {
-            background-color: #15181e;
+            background-color: transparent;
             color: white;
             padding-right: 1%;
             padding-left: 2%;
 
         }
+
+        .note-item {
+            background: #1e1e3066;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 5px;
+            color: #ffffffbb;
+            margin: 2rem auto;
+            font-style: italic;
+            font-size: 14px;
+            padding: 0.5rem 1rem;
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));;
+            object-fit: cover;
+            grid-gap: 1rem;
+        }
+
+        .action-items {
+            padding: 0.5rem 1rem;
+            background-color: #1e1e30;
+        }
+
+        .action-items img {
+            margin-right: 8px;
+            height: 100%;
+            margin-right: 2rem;
+            width: 4.5em;   
+        }
+
+        @media only screen and (max-width: 640px) {
+            .action-items img {
+                width: 3em;
+            }
+        }
+
+
+        .action-items .item-heading {
+            font-size: 1.1rem;
+    font-weight: 700;
+        }
+
+        .action-items .item-text {
+            font-size: 0.9rem;
+            margin-bottom:0.5rem;
+        }
+
+        .action-items:hover {
+            background-color: rgba(255,255,255,0.05)
+        }
     </style>
     <br>
 
     <!-- Main Heading Note -->
-    <div class="card border-dark" style="background-color: #15181e; color: white; padding-top: 0%;">
-        <div class="card-body">
-            <h4 class="card-title">NOTE :
-            </h4>
-            <p class="card-text" style="color:white">Below list is carefully prepared considering all requirements for
-                COVID-19<br>Click on <img alt="Backhand Index Pointing Down icon"
-                    src="https://img.icons8.com/emoji/2x/backhand-index-pointing-down-emoji.png"
-                    style="height: 25px; width: 25px;"> each one to find out more<br>if you think there's any error in
-                data or we can add
-                some new feature, feel free to reach out to us link in the footer <img alt="Folded Hands Emoji icon"
-                    src="https://img.icons8.com/emoji/2x/folded-hands-emoji-1.png" style="height: 25px; width: 25px;">
+    <div class="alert alert-primary note-item" >
+            <p class="font-weight-bold " style="font-style: normal">NOTE :</p>
+
+            <p class="" >Below list is carefully prepared considering all requirements for
+                COVID-19. Click on tabs below to find out more. You are welcome report any errors/bugs, provide feedback and suggest a feature on our social media links.
             </p>
 
-        </div>
     </div>
 
     <!-- GROCERIES ITEM -->
-    <div class="list-group" style="width: 100%;">
-        <a id="listbutton" class="list-group-item d-flex justify-content-between align-items-center"
-            href="{% url 'groceries_name' %}" style="text-decoration: none;">
-            <span><img alt="Grocery Bag icon" src="https://img.icons8.com/office/2x/shop.png"
-                    style="height: 35px; width: 35px;"> GROCERIES ( Find Kirana stores & order by calling them )</span>
-            </span>
 
-            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-chevron-right" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z">
-                    </path>
-                </svg></span>
-        </a>
+    <div class="items-grid">
+        <div class="list-group action-items" style="width: 100%;">
+            <a id="listbutton" class="list-group-item d-flex justify-content-between align-items-center"
+                href="{% url 'groceries_name' %}" style="text-decoration: none;">
+                <div class="d-flex flex-row align-items-center">
+                    <img alt="Grocery Bag icon" src="https://img.icons8.com/office/2x/shop.png">
+                    <div class="d-flex flex-column">
+                        <p class="item-heading">
+                        GROCERIES
+                        </p>
+                        <p class="item-text">
+                            Find Kirana stores & order by calling them.
+                        </p>
+                    </div>
+                    
+                    
+                </div>
+                
+                {% comment %} <span>  </span>
+                </span>
+
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-chevron-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z">
+                        </path>
+                    </svg></span> {% endcomment %}
+            </a>
+        </div>
+    
+
+        <!-- MEAL SERVICES ITEM -->
+        <div class="list-group action-items" style="width: 100%;">
+            <a id="listbutton" class="list-group-item d-flex justify-content-between align-items-center"
+                href="{% url 'meal_services_name' %}" style="text-decoration: none;">
+                
+                <div class="d-flex flex-row align-items-center">
+                   <img alt="Meal icon" src="https://img.icons8.com/fluent/2x/meal.png">
+                    <div class="d-flex flex-column">
+                        <p class="item-heading">
+                        MEAL SERVICES
+                        </p>
+                        <p class="item-text">
+                            Find Services that deliver Meals. <br> <span class="badge badge-danger">Coming
+                        soon</span>
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- VACCINE INFO AND REGISTRATION ITEM -->
+        <div class="list-group action-items" style="width: 100%;">
+            <a id="listbutton" class="list-group-item d-flex justify-content-between align-items-center"
+                href="{% url 'vaccinesdata_name' %}" style="text-decoration: none;">
+
+                <div class="d-flex flex-row align-items-center">
+                   <img src="https://img.icons8.com/color/2x/syringe-with-a-drop-of-blood.png">
+                    <div class="d-flex flex-column">
+                        <p class="item-heading">
+                        VACCINE
+                        </p>
+                        <p class="item-text">
+                            Vaccine & Registration.
+                        </p>
+                    </div>
+                </div>
+
+            </a>
+        </div>
+
+        <!-- VACCINE AVAILABLITY ITEM -->
+        <div class="list-group action-items" style="width: 100%;">
+            <a id="listbutton" class="list-group-item d-flex justify-content-between align-items-center"
+                href="{% url 'vaccines_availablity_name' %}" style="text-decoration: none;">
+
+                <div class="d-flex flex-row align-items-center">
+                   <img src="https://www.hhs.gov/sites/default/files/OIDP_vaccine-calendar-icon_2020.05_3_0.png">
+                    <div class="d-flex flex-column">
+                        <p class="item-heading">
+                        VACCINE AVAILABLITY
+                        </p>
+                        <p class="item-text">
+                            Center & slots.
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- COVID TESTING HOSPITALS ITEM -->
+        <div class="list-group action-items" style="width: 100%;">
+            <a id="listbutton" class="list-group-item d-flex justify-content-between align-items-center"
+                href="{% url 'covidtestinglabs_name' %}" style="text-decoration: none;">
+
+                <div class="d-flex flex-row align-items-center">
+                   <img alt="PCR Test icon" src="https://img.icons8.com/cotton/2x/pcr-test--v2.png">
+                    <div class="d-flex flex-column">
+                        <p class="item-heading">
+                        COVID TESTING
+                        </p>
+                        <p class="item-text">
+                            Covid Testing Hospitals.
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+        <!-- COVID NEWS ITEM -->
+        <div class="list-group action-items" style="width: 100%;">
+            <a id="listbutton" class="list-group-item d-flex justify-content-between align-items-center"
+                href="{% url 'covid_news_name' %}" style="text-decoration: none;">
+                
+                <div class="d-flex flex-row align-items-center">
+                   <img alt="News icon" src="https://img.icons8.com/doodle/2x/news.png">
+                    <div class="d-flex flex-column">
+                        <p class="item-heading">
+                        COVID NEWS
+                        </p>
+                        <p class="item-text">
+                            Covering Wardha District News.
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+        <!-- HOSPITAL BEDS ITEMS -->
+        <div class="list-group action-items" style="width: 100%;">
+            <a id="listbutton" class="list-group-item d-flex justify-content-between align-items-center"
+                href="{% url 'hospital_beds_name' %}" style="text-decoration: none;">
+
+                <div class="d-flex flex-row align-items-center">
+                   <img alt="Hospital Bed icon" src="https://img.icons8.com/office/2x/hospital-bed.png">
+                    <div class="d-flex flex-column">
+                        <p class="item-heading">
+                        HOSPITAL BEDS
+                        </p>
+                        <p class="item-text">
+                            Find info on Availablity of Beds. <br> <span class="badge badge-danger">Coming
+                        soon</span>
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- PHARMACIES ITEM -->
+        <div class="list-group action-items" style="width: 100%;">
+            <a id="listbutton" class="list-group-item d-flex justify-content-between align-items-center"
+                href="{% url 'pharmacies_name' %}" style="text-decoration: none;">
+
+                <div class="d-flex flex-row align-items-center">
+                   <img src="https://img.icons8.com/color/2x/pill.png" alt="Pill icon" loading="lazy">
+                    <div class="d-flex flex-column">
+                        <p class="item-heading">
+                        PHARMACIES
+                        </p>
+                        <p class="item-text">
+                            Find Medical stores & order by
+                    calling them. <br> <span class="badge badge-danger">Coming
+                        soon</span>
+
+                        </p>
+                    </div>
+                </div>
+
+                {% comment %} <span><img src="https://img.icons8.com/color/2x/pill.png" alt="Pill icon" loading="lazy"
+                        style="height: 35px; width: 35px;"> PHARMACIES ( Find Medical stores & order by
+                    calling them
+                    ) <span class="badge badge-danger">Coming soon</span></span>
+
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-chevron-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z">
+                        </path>
+                    </svg></span> {% endcomment %}
+            </a>
+        </div>
     </div>
-
-    <!-- MEAL SERVICES ITEM -->
-    <div class="list-group" style="width: 100%;">
-        <a id="listbutton" class="list-group-item d-flex justify-content-between align-items-center"
-            href="{% url 'meal_services_name' %}" style="text-decoration: none;">
-            <span><img alt="Meal icon" src="https://img.icons8.com/fluent/2x/meal.png"
-                    style="height: 40px; width: 40px;"> MEAL SERVICES ( Find Services that deliver Meals ) <span
-                    class="badge badge-danger">Coming soon</span></span>
-            </span>
-
-            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-chevron-right" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z">
-                    </path>
-                </svg></span>
-        </a>
-    </div>
-
-    <!-- VACCINE INFO AND REGISTRATION ITEM -->
-    <div class="list-group" style="width: 100%;">
-        <a id="listbutton" class="list-group-item d-flex justify-content-between align-items-center"
-            href="{% url 'vaccinesdata_name' %}" style="text-decoration: none;">
-            <span><img src="https://img.icons8.com/color/2x/syringe-with-a-drop-of-blood.png"
-                    alt="Syringe with a drop of blood icon" loading="lazy" style="height: 35px; width: 35px;">
-                <span style="display:inline;"> VACCINE (Vaccine & Registration)</span>
-            </span>
-
-            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-chevron-right" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z">
-                    </path>
-                </svg></span>
-        </a>
-    </div>
-
-    <!-- VACCINE AVAILABLITY ITEM -->
-    <div class="list-group" style="width: 100%;">
-        <a id="listbutton" class="list-group-item d-flex justify-content-between align-items-center"
-            href="{% url 'vaccines_availablity_name' %}" style="text-decoration: none;">
-            <span><img src="https://www.hhs.gov/sites/default/files/OIDP_vaccine-calendar-icon_2020.05_3_0.png"
-                    alt="Syringe with a drop of blood icon" loading="lazy" style="height: 35px; width: 35px;">
-                <span style="display:inline;"> VACCINE AVAILABLITY (Center & slots )</span>
-            </span>
-
-            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-chevron-right" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z">
-                    </path>
-                </svg></span>
-        </a>
-    </div>
-
-    <!-- COVID TESTING HOSPITALS ITEM -->
-    <div class="list-group" style="width: 100%;">
-        <a id="listbutton" class="list-group-item d-flex justify-content-between align-items-center"
-            href="{% url 'covidtestinglabs_name' %}" style="text-decoration: none;">
-            <span><img alt="PCR Test icon" src="https://img.icons8.com/cotton/2x/pcr-test--v2.png"
-                    style="height: 35px; width: 35px;"> COVID TESTING (Covid Testing Hospitals)</span>
-            </span>
-
-            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-chevron-right" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z">
-                    </path>
-                </svg></span>
-        </a>
-
-    </div>
-
-    <!-- COVID NEWS ITEM -->
-    <div class="list-group" style="width: 100%;">
-        <a id="listbutton" class="list-group-item d-flex justify-content-between align-items-center"
-            href="{% url 'covid_news_name' %}" style="text-decoration: none;">
-            <span><img alt="News icon" src="https://img.icons8.com/doodle/2x/news.png"
-                    style="height: 40px; width: 40px;"> COVID NEWS ( only wardha news )</span>
-            </span>
-
-            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-chevron-right" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z">
-                    </path>
-                </svg></span>
-        </a>
-
-    </div>
-
-    <!-- HOSPITAL BEDS ITEMS -->
-    <div class="list-group" style="width: 100%;">
-        <a id="listbutton" class="list-group-item d-flex justify-content-between align-items-center"
-            href="{% url 'hospital_beds_name' %}" style="text-decoration: none;">
-            <span><img alt="Hospital Bed icon" src="https://img.icons8.com/office/2x/hospital-bed.png"
-                    style="height: 35px; width: 35px;">  HOSPITAL BEDS
-                 ( Find info on Availablity of Beds ) <span class="badge badge-danger">Coming
-                    soon</span></span>
-            </span>
-
-            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-chevron-right" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z">
-                    </path>
-                </svg></span>
-        </a>
-    </div>
-
-    <!-- PHARMACIES ITEM -->
-    <div class="list-group" style="width: 100%;">
-        <a id="listbutton" class="list-group-item d-flex justify-content-between align-items-center"
-            href="{% url 'pharmacies_name' %}" style="text-decoration: none;">
-            <span><img src="https://img.icons8.com/color/2x/pill.png" alt="Pill icon" loading="lazy"
-                    style="height: 35px; width: 35px;"> PHARMACIES ( Find Medical stores & order by
-                calling them
-                ) <span class="badge badge-danger">Coming soon</span></span>
-
-            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-chevron-right" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z">
-                    </path>
-                </svg></span>
-        </a>
-    </div>
-
 </div>
 
 {% endblock %}

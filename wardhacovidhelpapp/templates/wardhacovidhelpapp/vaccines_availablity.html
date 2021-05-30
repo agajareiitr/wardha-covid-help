@@ -1,41 +1,98 @@
-{% extends 'wardhacovidhelpapp/base.html' %}
+{% extends 'wardhacovidhelpapp/base.html' %} {% block content %}
+<br />
+<style>
+  @media only screen and  (max-width: 640px) {
+    .responsive-btn { 
+      display: flex;
+      margin-bottom: 1rem;
+      margin-left: 0.5rem;
+    }
+  }
+</style>
 
-{% block content %}
-<br>
-<div class="container" style="background-color: #15181e; color: white;">
-    <p>ALl the Data is Coming from Officail website of Co-Win, the Data is Updated Once a Day to register click on Below
-        Button to register for Vaccine</p>
-    <p>Please Note that this Data is only for Wardha District</p>
-    <a href="https://selfregistration.cowin.gov.in/" target="_blank"><button type="button"
-            class="btn btn-primary btn-block">REGISTER ON CoWIN</button></a>
+<div class="container" style="background-color: #15181e; color: white">
+  <div
+    style="
+      background: #1e1e3066;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 5px;
+      color: #ffffffbb;
+      padding: 1rem 1rem 0 1rem;
+      margin-bottom: 2rem;
+      font-style: italic;
+    "
+  >
+    <p>
+      ALl the Data is Coming from Officail website of Co-Win, the Data is
+      Updated Once a Day to register click on Below Button to register for
+      Vaccine. Please Note that this Data is only for Wardha District.
+    </p>
+  </div>
+  <a href="https://selfregistration.cowin.gov.in/" class="responsive-btn" target="_blank"
+    ><button
+      type="button"
+      class="btn btn-primary float-right mr-2 "
+      style="
+        background-color: darkslateblue;
+        outline: none;
+        border: none;
+        font-weight: 700;
+      "
+    >
+      REGISTER ON CoWIN
+    </button></a
+  >
 
-    <h2>COVID CENTERS :</h2>
-    {% for Center in Centers %}
+  <h2 class="font-weight-bold ml-2" style="margin-bottom: 2rem">
+    Covid Centers :
+  </h2>
+  {% for Center in Centers %}
 
-    <div class="card shadow rounded" style="background-color: #1e1e1e; color: white;">
-        <div class="card-body">
-            <h4 class="card-title" style="display: inline;">{{Center.Name}}</h4>
-            <p class="card-text" style="margin: 0%;">{{Center.BlockName}}, {{Center.DistrictName}}</p>
-            <p class="card-text"style="margin: 0%;">Last Updated : {{Center.LastUpdated}}</p>
-            <hr style="margin: 0%;">
-            <h7>
-                <p class="card-text" style="margin: 0%;">
-                    {% if Center.AvailableCapacity != "0" %}
-                    <span class="text-success">Vaccine Available : {{Center.AvailableCapacity}}</span>
-                    {%else%}
-                    <span style="color: red;">Vaccine Available : {{Center.AvailableCapacity}}</span>
-                    {%endif%}
-                    &bull; <span class="badge badge-pill badge-light">{{Center.VaccineName}}</span>
-                </p>
-                <p class="card-text"><img alt="Male Female User Group icon"
-                        src="https://img.icons8.com/color/2x/male-female-user-group.png"
-                        style="height: 30px; width: 30px;"> {{Center.MinAgeLimit}}+ years &bull; <img
-                        alt="White Rupee icon" src="https://img.icons8.com/material-sharp/2x/ffffff/rupee.png"
-                        style="height: 18px; width: 18px;">{{Center.FeeType}}</p>
-            </h7>
-        </div>
+  <div
+    class="card shadow rounded"
+    style="background-color: #1e1e30; color: white"
+  >
+    <div class="card-body">
+      <h4 class="card-title" style="display: inline">{{Center.Name}}</h4>
+      <p class="card-text" style="margin: 0%">
+        {{Center.BlockName}}, {{Center.DistrictName}}
+      </p>
+      <p class="card-text" style="margin: 0%">
+        Last Updated : {{Center.LastUpdated}}
+      </p>
+      <hr style="margin: 0%" />
+      <h7>
+        <p class="card-text" style="margin: 0%">
+          {% if Center.AvailableCapacity != "0" %}
+          <span class="text-success"
+            >Vaccine Available : {{Center.AvailableCapacity}}</span
+          >
+          {%else%}
+          <span style="color: red"
+            >Vaccine Available : {{Center.AvailableCapacity}}</span
+          >
+          {%endif%} &bull;
+          <span class="badge badge-pill badge-light"
+            >{{Center.VaccineName}}</span
+          >
+        </p>
+        <p class="card-text">
+          <img
+            alt="Male Female User Group icon"
+            src="https://img.icons8.com/color/2x/male-female-user-group.png"
+            style="height: 30px; width: 30px"
+          />
+          {{Center.MinAgeLimit}}+ years &bull;
+          <img
+            alt="White Rupee icon"
+            src="https://img.icons8.com/material-sharp/2x/ffffff/rupee.png"
+            style="height: 18px; width: 18px"
+          />{{Center.FeeType}}
+        </p>
+      </h7>
     </div>
-    <br>
-    {% endfor %}
+  </div>
+  <br />
+  {% endfor %}
 </div>
 {% endblock %}
